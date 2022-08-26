@@ -2,9 +2,9 @@
   "name": "api-gen",
   "version": "1.0.0",
   "description": "Nodejs boilerplate generator ",
-  "main": "dist/app.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-v1": "nodemon ./v1/src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Nathanielanum/api-gen/issues"
   },
-  "homepage": "https://github.com/Nathanielanum/api-gen#readme"
+  "homepage": "https://github.com/Nathanielanum/api-gen#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
 }
