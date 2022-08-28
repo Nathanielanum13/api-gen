@@ -12,7 +12,7 @@ const app: Application = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(helmet());
-app.use(morgan("[:method] [::] [:status] :url :response-time"));
+app.use(morgan("[\x1B[34m:method\x1B[39m] - [:status] [::] :date[iso] [::] Route - (:url) [::] Duration - :response-time milliseconds"));
 
 app.use(router);
 

@@ -1,0 +1,23 @@
+{
+  "name": "$__ag.project.name__$",
+  "version": "1.0.0",
+  "description": "Nodejs boilerplate generator",
+  "main": "./dist/app.js",
+  "scripts": {
+    "dev": "nodemon ./src/app.ts",
+    "build": "tsc --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+$__ag.project.git.repo__$"
+  },
+  "keywords": [],
+  "author": "$__ag.project.author__$",
+  "license": "ISC",
+  "bugs": {
+    "url": "$__ag.project.git.bug.url__$"
+  },
+  "homepage": "$__ag.project.git.readme.url__$",
+  "dependencies": $__ag.project.dep__$,
+  "devDependencies": $__ag.project.dev.dep__$
+}
