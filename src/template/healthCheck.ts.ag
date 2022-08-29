@@ -1,0 +1,11 @@
+import { Response, Request } from "express"
+import HealthCheck from "../utils/interface/HealthCheck"
+export default (httpRequest: Request, httpResponse: Response) => {
+    const response: HealthCheck = {
+        name: "$__ag.project.org.name__$",
+        alive: true,
+        author: "$__ag.project.author__$",
+        environment: `${process.env.$__ag.project.name__$_ENVIRONMENT}`
+    }
+    return httpResponse.json(response)
+}

@@ -6,7 +6,7 @@ import prettier from "prettier";
 const logger = require("../utils/log/logger");
 
 const defaultDependencies = [
-  "morgan:2.29.4",
+  "morgan:1.10.0",
   "express:4.18.1",
   "helmet:5.1.1",
   "moment:2.29.4",
@@ -107,7 +107,7 @@ const buildStructure = (
         const baseProjectDir = path.resolve("./");
         const templateDir = baseProjectDir + "/src/template/";
 
-        const templateValueKeys = Object.keys(dep)
+        const templateValueKeys = Object.keys(dep);
 
         if (templateValueKeys.length) {
           fs.readFile(templateDir + name + ".ag", "utf8", function (err, data) {
@@ -121,7 +121,9 @@ const buildStructure = (
               structurePath,
               name
             );
-          })
+          });
+        } else {
+          copyFile(templateDir + name + ".ag", structurePath + `/${name}`);  
         }
         // copyFile(templateDir + name + ".ag", structurePath + `/${name}`);
       });
@@ -264,7 +266,16 @@ const initialiseProject = (projectPath: string, createApiData: CreateApi) => {
         },
         {
           name: "controller",
-          files: [],
+          files: [
+            {
+              name: "healthCheck.ts",
+              dep: {
+                "ag.project.name": trimedProjectName,
+                "ag.project.org.name": createApiData?.project,
+                "ag.project.author": createApiData?.properties?.author,
+              },
+            },
+          ],
           dir: [],
         },
         {
@@ -279,6 +290,16 @@ const initialiseProject = (projectPath: string, createApiData: CreateApi) => {
                   dep: {
                     "ag.project.name": trimedProjectName,
                   },
+                },
+              ],
+              dir: [],
+            },
+            {
+              name: "interface",
+              files: [
+                {
+                  name: "HealthCheck.ts",
+                  dep: {},
                 },
               ],
               dir: [],
