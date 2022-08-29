@@ -26,14 +26,14 @@ const fileFormat = combine(timestamp(), printf(logFile));
 const logger = createLogger({
   transports: [
     new transports.File({
-      filename: `${process.env.API_GEN_ERROR_LOG_DIR}/error.log`,
+      filename: `${process.env.$__ag.project.name__$_ERROR_LOG_DIR}/error.log`,
       format: fileFormat,
       level:
-        process.env.API_GEN_ENVIRONMENT !== "production" ? "silly" : "info",
+        process.env.$__ag.project.name__$_ENVIRONMENT !== "production" ? "silly" : "info",
     }),
     new transports.Console({
       level:
-        process.env.API_GEN_ENVIRONMENT !== "production" ? "silly" : "info",
+        process.env.$__ag.project.name__$_ENVIRONMENT !== "production" ? "silly" : "info",
       format: consoleFormat,
     }),
   ],
